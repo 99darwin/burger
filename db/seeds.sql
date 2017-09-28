@@ -1,4 +1,4 @@
 INSERT INTO burgers(burger_name, devoured)
-VALUES ('Mount Rushmore', 1), 
-('Mount St. Helens', 0), 
-('Mount Olympus', 1);
+VALUES ('Mount Rushmore', false), 
+('Mount St. Helens', false), 
+('Mount Olympus', false);
