@@ -29,19 +29,19 @@ router.get("/", function(req, res) {
     console.log("condition", condition);
   
     burger.update({
-      devoured: req.body.devoured
+      devoured: true
     }, condition, function() {
       res.redirect('/');
     });
   });
   
-  // router.delete("/:id", function(req, res) {
-  //   var condition = "id = " + req.params.id;
+  router.delete("/:id", function(req, res) {
+    var condition = "id = " + req.params.id;
   
-  //   burger.delete(condition, function() {
-  //     res.redirect("/");
-  //   });
-  // });
+    burger.delete(condition, function() {
+      res.redirect("/");
+    });
+  });
   
   // Export routes for server.js to use.
   module.exports = router;

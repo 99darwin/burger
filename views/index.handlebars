@@ -6,7 +6,12 @@
             <ul class="collection with-header">
                 <li class="collection-header"><h4>Your Burgers</h4></li>
                 {{#each burgers}}
+                {{#unless this.devoured}}
                 <li class="collection-item">{{this.burger_name}}</li>
+                <form action="/{{this.id}}?_method=PUT" method="POST">
+                    <button class="btn waves-effect waves-light" type="submit">DEVOUR</button>
+                </form>
+                {{/unless}}
                 {{/each}}
             </ul>
         </div>
@@ -14,8 +19,11 @@
             <ul class="collection with-header">
                 <li class="collection-header"><h4>Eaten Burgers</h4></li>
                 {{#each burgers}}
-                {{#if this.eaten}}
+                {{#if this.devoured}}
                 <li class="collection-item">{{this.burger_name}}</li>
+                <form action="/{{this.id}}?_method=PUT" method="POST">
+                    <input type="hidden" name="devoured" value="true">
+                </form>
                 {{/if}}
                 {{/each}}
             </ul>
