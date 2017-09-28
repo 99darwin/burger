@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var burger = require('./models/burgers.js');
+var burger = require('../models/burger.js');
 
 // Create all our routes and set up logic within those routes where required.
 router.get("/", function(req, res) {
@@ -15,9 +15,9 @@ router.get("/", function(req, res) {
   
   router.post("/", function(req, res) {
     burger.create([
-      "name", "sleepy"
+      "burger_name"
     ], [
-      req.body.name, req.body.sleepy
+      req.body.burger_name
     ], function() {
       res.redirect("/");
     });
@@ -29,9 +29,9 @@ router.get("/", function(req, res) {
     console.log("condition", condition);
   
     burger.update({
-      sleepy: req.body.sleepy
+      devoured: true
     }, condition, function() {
-      res.redirect("/");
+      res.redirect('/');
     });
   });
   

@@ -7,7 +7,7 @@ DROP TABLE IF EXISTS burgers;
 CREATE TABLE burgers (
 	id INTEGER NOT NULL AUTO_INCREMENT,
 	burger_name VARCHAR(255) NOT NULL,
-	devoured TINYINT,
+	devoured BOOLEAN DEFAULT false,
 	date TIMESTAMP,
 	PRIMARY KEY (id)
 );
